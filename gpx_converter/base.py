@@ -246,7 +246,7 @@ class Converter(object):
         for idx in input_df.index:
             gpx_segment.points.append(gpxpy.gpx.GPXTrackPoint(input_df.loc[idx, lats_colname],
                                                               input_df.loc[idx, longs_colname],
-                                                              time=pd.Timestamp(input_df.loc[idx, times_colname]) if times_colname else None,
+                                                              time=pd.Timestamp(input_df.loc[idx, times_colname], tz="UTC") if times_colname else None,
                                                               elevation=input_df.loc[idx, alts_colname] if alts_colname else None,
                                                               speed=input_df.loc[idx, speed_colname] if speed_colname else None,
                                                               symbol=input_df.loc[idx, symbol_colname] if symbol_colname else None,
